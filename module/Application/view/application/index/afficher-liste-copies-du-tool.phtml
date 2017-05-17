@@ -1,0 +1,15 @@
+<?php
+echo "<br/><br/>Quel outil désirez-vous réserver ? <br/><br/>";
+?>
+<table>
+<?php 
+  echo "<tr>";
+foreach ($this->listeCopies as $objCopie){ 
+            echo "<td> <a href='/application/index/afficherFormBook?id=".$objCopie->getIdCopie()."'>".$objCopie->barcode."<br/>";
+            echo "<img src='".$this ->basePath().'/img/copie/'.$objCopie->getPictures()."'/>";
+            echo "<p> Détails de l'appareil : <br/>".$objCopie->getDetails()."</p>";
+            echo "</td>";
+        }
+       echo "<tr>";
+?> 
+</table>

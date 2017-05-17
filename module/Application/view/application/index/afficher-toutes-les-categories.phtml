@@ -1,0 +1,20 @@
+<?php
+echo "<br/><br/>Les categories disponibles<br/><br/>";
+?>
+<table>
+<?php 
+  echo "<tr>";
+    foreach($this->toutesLesCategories as $objCategorie  ){ 
+
+        echo "<td>";
+            echo "<img src='".$this ->basePath().'/img/categorie/'.$objCategorie->getPictures()."'/>";
+            echo "<a href='/application/index/afficherListeToolsDeLaCategorie?id=".$objCategorie->getIdCategorie()."'>".$objCategorie->name;
+            echo "</a>";
+        echo "<td>";    
+      }
+     echo "<tr>";
+?>
+</table>
+
+
+  

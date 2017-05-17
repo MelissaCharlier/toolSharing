@@ -1,0 +1,65 @@
+<?php session_start(); ?>
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+        $("form").toggle();
+    });
+    $("#conf").click(function(){
+        $("form").hide();
+    });
+});
+</script>
+<h3>Vos données</h3><br/><br/>
+
+<table>
+    <tr>
+        <td>
+            <label>Nom:</label> <?php echo $_SESSION['user']['name']; ?>
+        </td>
+    </tr>
+    <tr>
+        <td>
+           <label>Prénom:</label> <?php echo $_SESSION['user']['firstName']; ?>
+        </td>
+    </tr>
+     <tr>
+        <td>
+            <label>Rue:</label> <?php echo $_SESSION['user']['street']; ?>
+        </td>
+    </tr>
+     <tr>
+        <td>
+            <label>Numéro:</label> <?php echo $_SESSION['user']['number']; ?>
+        </td>
+    </tr>
+     <tr>
+        <td>
+            <label>Ville:</label> <?php echo $_SESSION['user']['city']; ?>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>Email:</label> <?php echo $_SESSION['user']['mail']; ?>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>Nom d'utilisateur:</label> <?php echo $_SESSION['user']['userName']; ?>
+        </td>
+    </tr>
+</table>
+<br/>
+<button>Modifier</button>
+    <form action="update" method="post" id="formChanger" style="display: none">
+        <label>Prénom:</label> <input type="text" name="firstName" class="firstName"><br><br>
+        <label>Nom:</label> <input type="text" name="name" class="name"><br><br>
+        <label>Rue:</label> <input type="text" name="street" class="street"><br><br>
+        <label>Numéro:</label> <input type="text" name="number" class="number"><br><br>
+        <label>Ville:</label> <input type="text" name="city" class="city"><br><br>
+        <label>Email:</label> <input type="email" name="email" class="email"><br><br>
+        <label>Nom d'utilisateur:</label> <input type="text" name="uname" class="uname"><br><br>
+        <label>Mot de Passe:</label> <input type="password" name="pwd" class="pwd"><br><br>
+        <input id ="conf" type="submit" value="Confirmez"><br><br>
+    </form>
+<br/><br/>
+

@@ -1,0 +1,9 @@
+<?php
+
+if (isset($_SESSION['user'])) {
+   echo 'Bienvenue, ' . $_SESSION['user']['firstName']; 
+   // redirection vers la page perso 
+}
+else {
+    echo $this->msg;
+}

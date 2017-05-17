@@ -1,0 +1,14 @@
+<?php
+echo "<br/><br/>Quels types d'outil désirez-vous ? <br/><br/>";
+?>
+<table>
+<?php 
+  echo "<tr>";
+foreach ($this->listeTools as $objTool){ 
+            echo "<td> <a href='/application/index/afficherListeCopiesDuTool?id=".$objTool->getIdTool()."'>".$objTool->name."<br/>";
+            echo "<img src='".$this ->basePath().'/img/tool/'.$objTool->getPictures()."'/></a></td>";
+        }
+       echo "</tr>";
+?>
+</table>
+   

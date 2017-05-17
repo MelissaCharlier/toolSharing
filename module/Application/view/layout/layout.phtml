@@ -1,0 +1,84 @@
+<?php echo $this->doctype(); ?>
+
+<html lang="fr">
+    <head>
+        <!-- Meta -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <?php echo $this->headTitle($this->translate('Tool Sharing'))?>
+        
+        <!-- Scripts -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="/resources/demos/style.css">
+        <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+
+        <!-- Le styles -->
+        <?php echo $this->headLink(/*array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico')*/)
+                        ->prependStylesheet($this->basePath('css/style.css'));
+              echo $this->headLink()
+                        ->prependStylesheet($this->basePath('css/bootstrap.css'));
+                         ?>
+
+        <!-- Scripts -->
+        <?php echo $this->headScript()
+            ->prependFile($this->basePath('js/bootstrap.min.js'))
+            ->prependFile($this->basePath('js/jquery.min.js'))
+            ->prependFile($this->basePath('js/respond.min.js'), 'text/javascript',['conditional' => 'lt IE 9',])
+            ->prependFile($this->basePath('js/html5shiv.min.js'),   'text/javascript',['conditional' => 'lt IE 9',])
+        ; ?>
+
+    </head>
+    <body>
+        <div class="page-wrap">
+            <header>
+                <div id="headerTitle">Planifions un meilleur partage !</div>
+                <img id="headerLogo" src="<?php echo $this->basePath('img/StarAnise.png') ?>" alt="Logo"/>
+                     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                        <div class="container">
+                            <div class="collapse navbar-collapse">
+                                <ul class="nav navbar-nav">
+                                    <?php 
+
+
+
+                                    if (session_status()==PHP_SESSION_NONE) { 
+                                        session_start();
+
+                                    }
+
+
+                                    if (isset($_SESSION['user'])){
+                                            echo "<li class='active'><a href='/application/Index/afficherToutesLesCategories'>" . $this->translate('Home') . "</a></li>";
+                                            echo "<li class='active'><a href='/application/User/pagePerso'>" . $this->translate('profil') . "</a></li>";
+//                                            echo "<li class='active'><a href='/application/book/index'>" . $this->translate('Mes réservations') . "</a></li>";
+//                                            echo "<li class='active'><a href='/application/offer/index'>" .$this->translate('Mes offres') . "</a></li>";
+                                            echo "<p>".$_SESSION['user']['firstName']."<p/>";
+                                            echo "<a href='/application/User/deconnexion'>" . $this->translate('Se déconnecter') . "</a></p>";
+
+                                    }
+                                    else {
+                                        echo "<li class='active'><a href='/application/index'>" . $this->translate('Home') . "</a></li>";
+                                    }
+
+                                    ?>
+                                </ul>
+                            </div><!--/.nav-collapse -->
+                        </div>
+                    </nav>
+            </header>
+         
+   
+            
+        <div class="container">
+            <?php echo $this->content; ?>
+        </div>
+    </div>
+            <footer>
+                <p>&copy; <?php echo date('Y') ?></p>
+            </footer>
+            
+        <!-- /container -->
+        <?php echo $this->inlineScript() ?>
+    </body>
+</html>

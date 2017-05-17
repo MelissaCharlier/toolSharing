@@ -1,0 +1,39 @@
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<br/><br/>
+<form action="/application/Book/insertBook" method="POST">
+    <p>Date: 
+    <input type="text" name="date" id='datepicker'>
+    </p>
+    <input type="submit" name="submit" id="send" value="Envoyer">
+</form>
+
+
+<script>
+    $( function() {
+        $( "#datepicker" ).datepicker({
+        showOn: "button",
+        buttonImage: "images/calendar.gif",
+        buttonImageOnly: true,
+        buttonText: "Select date"
+        });
+    });
+//      
+//    $(document).ready(function(){
+//        $("#send").click(function(){
+//        $ajax({
+//            method:"POST",
+//            url:"BookOffer",
+//            data:{'dateChoisie': $("#datepicker").val()},
+//            success: function (data){
+//                console.log("Réservation reçue");
+//            },
+//            error: function (data){
+//                console.log("Une erreur s'est produite");
+//            }
+//        }); 
+//    });
+    
+//});
+</script>
